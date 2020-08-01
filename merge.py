@@ -1,8 +1,8 @@
 def merge(left, right):
     """Merge sort merging function."""
-
     left_index, right_index = 0, 0
     result = []
+    
     while left_index < len(left) and right_index < len(right):
         if left[left_index] < right[right_index]:
             result.append(left[left_index])
@@ -18,16 +18,12 @@ def merge(left, right):
 
 def merge_sort(array):
     """Merge sort algorithm implementation."""
-
     if len(array) <= 1:  # base case
         return array
-
     # divide array in half and merge sort recursively
     half = len(array) // 2
     left = merge_sort(array[:half])
     right = merge_sort(array[half:])
-
     return merge(left, right)
-
 
 print(merge_sort([1, 5, 6, 8, 3, 0]))
